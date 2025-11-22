@@ -54,5 +54,25 @@ Ans: 1. Create new Spring Boot Apllication with Spring initializer
 Ans: Web starter, test starter, JPA data starter, Security, theamlyf
 
 8. How does a spring application get started?
-Ans: Spring get started by call main method which annotated by @SpringBootApplication in Spring Application class. this method takes Spring Application Builder as parameter which is used to configure the Application When the Spring Boot Application object created it .run methos got called 
+Ans: Spring get started by call main method which annotated by @SpringBootApplication in Spring Application class. 
+      this method takes Spring Application Builder as parameter which is used to configure the Application.
+      When the Spring Boot Application object created it .run methos got called
+
+9. What does the @SpringBootApplication annotation do internally?
+Ans: @SpringBootApplication combines three annotation . 
+      1. @EnableAutoConfiguration - Automatiocally Configure the bean to the class path
+      2. @ComponentScan - Scan the compone inside the Application like the class which are annotated with @Component @Service @Repository @Controller
+      3. @Configure - This confire the bean to the classpath and packages
+
+10. What is Spring Boot dependency management?
+Ans: Dependency management in Spring Boot makes easier to manage the dependency. it make sure all the dependency are apropriate for the current version Spring boot Application and compatible with it.
+
+11. What is dependency Injection and its types?
+Ans: Dependency Injection means Spring inject required dependency to another object
+      it is three type
+      1. Constructure
+      2. Setter
+      3. Field
+12. What is an IOC container?
+Ans: IOC (Inversion of Control) container manage the object life cycle creation and configuration ans dependency management
 
