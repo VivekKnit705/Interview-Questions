@@ -10,3 +10,49 @@
 10. NoSql
 11. Rest Apis,
 12. Design Pattern
+
+Question asked By Interviewr
+
+1. Circuit Breaker
+Ans- Circuit Breaker prevent the repeatedly calling failing downstream servce when then reach to thrashold limit of call failure it have three state.
+      1. Close State: When everyting is ormal
+      2. Open State: When failure calls reaches thrashold limitfter 
+      3. Half-Open State: After some time it tries again 
+2. How does Services to to Each othere in Microservice Architecture
+
+Ans - In Microservice architecture service talk to each othere by Synchronous and asynchronous manner
+      1. Synchronous communication usages Rest Api/ gRPC where one service call anothere service and wait for response
+      2. Asynchronous Communication usages broker like Kafka and send the messgae without waiting.
+    Additionally sevice discovery ensure that service can find each other and API gateway ensure the proper routing of request
+
+3. Java 17 Features
+Ans: Java 17 feature intriducde and some feature like 
+      1. Sealed Classes - What are the clsses that can extend this class
+      2. Enahance Pattern matching instanceof - Impove the casting when we were writing loop
+      3. Improves Switch expression - we dont not have to write it will be easier ->
+      4. Text Block using """
+      5. Record classes - Use to created immutable data class
+
+4. What are the Features of Spring Boot?
+Ans: Spring Boot feature
+      1. Actuator
+      2. CLI
+      3. Auto Configuration
+      4. Embedaded Server
+      5. Starter dependency
+
+5. What are the advantages of using Spring Boot?
+Ans: Spring boot provides starter dependency, Autoconfiguration, Embaded server, health monitoring.
+
+6. Explain the internal working of Spring Boot.
+Ans: 1. Create new Spring Boot Apllication with Spring initializer
+      2. Add required dependency
+      3. Annotate the classes with Proper Annotation
+      4. Run the Application
+
+7. What are the Spring Boot Starter Dependencies?
+Ans: Web starter, test starter, JPA data starter, Security, theamlyf
+
+8. How does a spring application get started?
+Ans: Spring get started by call main method which annotated by @SpringBootApplication in Spring Application class. this method takes Spring Application Builder as parameter which is used to configure the Application When the Spring Boot Application object created it .run methos got called 
+
