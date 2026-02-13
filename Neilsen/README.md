@@ -1,0 +1,92 @@
+1. Java 8 Features
+2. Multithreading
+3. Garbage Collection
+4. Java Framework(Sprint, Hibernate)
+5. Core Java
+6. OPPs
+7. Spring Data JPA vs Hibernate
+8. Microservice Architecture
+9. RDBMS
+10. NoSql
+11. Rest Apis,
+12. Design Pattern
+
+### Question asked By Interviewer
+
+**1. Circuit Breaker**
+
+**Ans:** Circuit Breaker prevent the repeatedly calling failing downstream service when then reach to threshold limit of call failure it have three state. 
+
+**Close State:** When everything is normal<br>
+**Open State:** When failure calls reaches threshold limit after <br>
+**Half-Open State:** After some time it tries again
+
+**2. How does Services to to Each othere in Microservice Architecture**
+
+**Ans -** In Microservice architecture service talk to each othere by Synchronous and asynchronous manner
+1. **Synchronous communication** usages Rest Api/ gRPC where one service call anothere service and wait for response
+2. **Asynchronous Communication** usages broker like Kafka and send the messgae without waiting.
+Additionally sevice discovery ensure that service can find each other and API gateway ensure the proper routing of request
+
+**3. Java 17 Features**
+
+**Ans:** Java 17 feature intriducde and some feature like
+1. **Sealed Classes** - What are the clsses that can extend this class
+2. **Enahance Pattern matching instanceof** - Impove the casting when we were writing loop
+3. **Improves Switch expression** - we dont not have to write it will be easier ->
+4. **Text Block using """**
+5. **Record classes** - Use to created immutable data class
+
+**4. What are the Features of Spring Boot?**
+
+**Ans:** Spring Boot feature
+1. Actuator
+2. CLI
+3. Auto Configuration
+4. Embedaded Server
+5. Starter dependency
+
+**5. What are the advantages of using Spring Boot?**
+
+   **Ans:** Spring boot provides starter dependency, Autoconfiguration, Embedded server, health monitoring.
+
+**6. Explain the internal working of Spring Boot.**
+
+**Ans:** 
+1. Create new Spring Boot Application with Spring initializer
+2. Add required dependency
+3. Annotate the classes with Proper Annotation
+4. Run the Application
+
+**7. What are the Spring Boot Starter Dependencies?**
+
+**Ans:** Web starter, test starter, JPA data starter, Security, theamlyf
+
+**8. How does a spring application get started?**
+
+**Ans:** Spring get started by call main method which annotated by @SpringBootApplication in Spring Application class.
+   this method takes Spring Application Builder as parameter which is used to configure the Application.
+   When the Spring Boot Application object created it .run methos got called
+
+**9. What does the @SpringBootApplication annotation do internally?**
+   **Ans:** @SpringBootApplication combines three annotation .
+1. @EnableAutoConfiguration - Automatically Configure the bean to the class path
+2. @ComponentScan - Scan the component inside the Application like the class which are annotated with @Component @Service @Repository @Controller
+3. @Configure - This configures the bean to the classpath and packages
+
+**10. What is Spring Boot dependency management?**
+
+**Ans:** Dependency management in Spring Boot makes easier to manage the dependency. it make sure all the dependency are apropriate for the current version Spring boot Application and compatible with it.
+
+**11. What is dependency Injection and its types?**
+
+**Ans:** Dependency Injection means Spring inject required dependency to another object
+    it is three type
+1. Constructure
+2. Setter
+3. Field
+
+**12. What is an IOC container?**
+
+**Ans:** IOC (Inversion of Control) container manage the object life cycle creation and configuration ans dependency management
+
