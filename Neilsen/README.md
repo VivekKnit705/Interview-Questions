@@ -88,5 +88,5 @@ Additionally sevice discovery ensure that service can find each other and API ga
 
 **12. What is an IOC container?**
 
-**Ans:** IOC (Inversion of Control) container manage the object life cycle creation and configuration ans dependency management
+**Ans:** IOC (Inversion of Control) container manage the object life cycle creation and configuration ans dependency management.
 
