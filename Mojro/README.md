@@ -62,3 +62,32 @@ The only common exceptions where finally won't run are:
 1. If the Virtual Machine crashes or the process is killed. 
 2. If you call a hard exit command like System.exit(0). 
 3. If the code enters an infinite loop inside the try block.
+
+**9. Java Volatile vs. Non-Volatile Variables**
+
+**Volatile Variable:**
+
+By default, Java variables are non-volatile. To improve performance, each thread may keep a local copy of a variable in its CPU cache instead of reading it from main memory every single time.
+
+**The Problem:** If Thread A updates a variable, Thread B might not see that update immediately because it’s still looking at its own "stale" cached version.<br>
+**Performance:** High (due to caching).<br>
+**Thread Safety:** Low (no guarantee of visibility).
+
+**Non-Volatile Variable:**
+
+When you mark a variable as volatile, you are telling the JVM: "Always read and write this variable directly to main memory."
+
+**Key Features:**
+**Visibility:** Any write to a volatile variable is immediately visible to all other threads. It "flushes" the change to main memory instantly.
+
+**Happens-Before Relationship:** It prevents the compiler from reordering code around the volatile variable, ensuring that any instructions before the write are completed first.
+
+**No Atomicity:** This is the big "gotcha." volatile does not make operations atomic.
+
+**Example of the volatile trap:**
+If you have public volatile int count = 0;, the operation count++ is not thread-safe. This is because count++ is actually three steps: read, increment, and write. Two threads could read the same value simultaneously, increment it, and write it back, losing one of the increments.
+
+**When to Use Which?**
+
+1. **Use Non-Volatile:** For local variables within methods, or when you are already using synchronized blocks or Locks to handle concurrency. 
+2. **Use Volatile**: For simple "status flags" or "signals" between threads where only one thread modifies the value, but many threads need to see the most recent update instantly
