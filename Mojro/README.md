@@ -102,3 +102,45 @@ If you have public volatile int count = 0;, the operation count++ is not thread-
 ### 11. Semaphore vs Mutex
 1. **Semaphore**: A semaphore is a synchronization mechanism that controls access to a shared resource by multiple threads. It maintains a count of the number of permits available, and threads can acquire or release permits to access the resource. Semaphores can allow multiple threads to access a resource simultaneously, up to a specified limit.
 2. **Mutex**: A mutex (short for "mutual exclusion") is a synchronization mechanism that allows only one thread to access a shared resource at a time. A mutex is essentially a binary semaphore that can only have two states: locked or unlocked. When a thread locks a mutex, other threads that attempt to lock it will be blocked until the mutex is unlocked.
+
+### 12. Thread Pool vs Executor Service
+1. **Thread Pool**: A thread pool is a collection of pre-instantiated threads that are ready to execute tasks. It manages a pool of worker threads and assigns tasks to them as they become available. Thread pools can help improve performance by reusing threads and reducing the overhead of creating new threads for each task.
+2. **Executor Service**: An executor service is a higher-level abstraction that provides a framework for managing and executing tasks asynchronously. It is built on top of thread pools and provides additional features such as task scheduling, task cancellation, and result retrieval. Executor services can be used to manage the execution of tasks in a more flexible and efficient way, allowing for better control over the lifecycle of tasks and threads.
+
+### 13. How to Prevent Memory Leaks in Java
+In Java, a memory leak occurs when the Garbage Collector (GC) cannot remove objects from the Heap because they are still being referenced—even though your application no longer needs them.
+
+Common causes of memory leaks in Java include:
+1. **Static References:** To Prevent this avoid Static for large collections.
+2. **Unclosed Resources:**  To Prevent this always close the resources like database connection, file stream, etc. in finally block or use try-with-resources statement.
+3. **Improper equals() and hashCode() Implementations:** always override equals() and hashCode() methods when you are using custom objects as keys in a HashMap or any other collection that relies on these methods. This ensures that the GC can properly identify and remove unused objects.
+4. **Inner Classes:**
+    
+
+### 14. Comparable vs Comparator
+1. **Comparable**: The Comparable interface is used to define the natural ordering of objects. It requires the class to implement the compareTo() method, which compares the current object with another object of the same type. This allows you to sort objects based on their natural ordering, such as alphabetical order for strings or numerical order for numbers.
+2. **Comparator**: The Comparator interface is used to define an external ordering of objects, allowing you to sort them based on different criteria without modifying the original class.
+```java
+// Comparable - Natural Order (by ID)
+class Student implements Comparable<Student> {
+    int id;
+    String name;
+    
+    public int compareTo(Student other) {
+        return this.id - other.id; // Natural sort by ID
+    }
+}
+
+// Comparator - Custom Orders
+// 1. Sort by Name (Lambda)
+Comparator<Student> nameComparator = (s1, s2) -> s1.name.compareTo(s2.name);
+
+// 2. Sort by ID Reversed (Using Comparator utility)
+Comparator<Student> idRevComparator = Comparator.comparingInt((Student s) -> s.id).reversed();
+
+```
+
+### 15. How we can ensure that the exception handling is from a single place
+1. **Global Exception Handler**: In frameworks like Spring, you can use @ControllerAdvice to create a global exception handler that will catch exceptions thrown by any controller and handle them in a centralized manner.
+2. **Custom Exception Classes**: Create custom exception classes that extend from a common base exception. This allows you to catch and handle specific types of exceptions in a consistent way across your application.
+
