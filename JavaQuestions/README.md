@@ -47,6 +47,7 @@ spring:
 ```
 Both formats are supported by Spring Boot, and you can choose the one that best suits your preferences and the complexity of your configuration.
 
-### 8. 
+### 8. What is the difference between a process and a thread?
+A process is an independent program that runs in its own memory space, while a thread is a smaller unit of execution that runs within a process and shares the same memory space. A process can have multiple threads, and each thread can execute concurrently, allowing for multitasking within a single process. Threads are more lightweight than processes and can communicate with each other more easily since they share the same memory space. However, this also means that threads can interfere with each other if not properly synchronized, while processes are isolated and do not affect each other directly.
 
 
