@@ -51,3 +51,30 @@ Both formats are supported by Spring Boot, and you can choose the one that best 
 A process is an independent program that runs in its own memory space, while a thread is a smaller unit of execution that runs within a process and shares the same memory space. A process can have multiple threads, and each thread can execute concurrently, allowing for multitasking within a single process. Threads are more lightweight than processes and can communicate with each other more easily since they share the same memory space. However, this also means that threads can interfere with each other if not properly synchronized, while processes are isolated and do not affect each other directly.
 
 
+### 8. Garbage Collection types (Minor vs Major GC)
+In Java, there are two main types of garbage collection: Minor GC and Major GC (also known as Full GC).
+1. **Minor GC:** This type of garbage collection occurs in the Young Generation of the heap, which is where new objects are allocated. Minor GC is triggered when the Young Generation becomes full. During a Minor GC, the garbage collector identifies and removes objects that are no longer in use, and promotes surviving objects to the Old Generation if they have been alive for a certain number of GC cycles.
+2. **Major GC (Full GC):** This type of garbage collection occurs in the Old Generation of the heap, which is where long-lived objects are stored. Major GC is triggered when the Old Generation becomes full or when certain conditions are met (e.g., a System.gc() call). During a Major GC, the garbage collector performs a more comprehensive cleanup, which can include compacting the heap to reduce fragmentation. Major GC is typically more time-consuming than Minor GC, and it can cause noticeable pauses in the application, so it should be used judiciously.
+
+### 9. How do you make a class thread-safe? Provide a practical example.
+To make a class thread-safe, you can use synchronization to control access to shared resources and ensure that only one thread can access a critical section of code at a time. This can be achieved using the `synchronized` keyword or by using locks from the `java.util.concurrent.locks` package.
+
+### 10.  How would you implement global exception handling in Spring Boot?
+In Spring Boot, you can implement global exception handling by using the `@ControllerAdvice` annotation along with `@ExceptionHandler` methods. This allows you to handle exceptions across the whole application in a centralized manner.
+
+
+### 11. How do you manage concurrent updates to the same database record?
+To manage concurrent updates to the same database record, you can use optimistic locking or pessimistic locking.
+1. **Optimistic Locking:** This approach assumes that multiple transactions can complete without affecting each other. It uses a version number or timestamp to detect if a record has been modified by another transaction. If a conflict is detected, the transaction can be retried or an error can be returned to the user.
+2. **Pessimistic Locking:** This approach locks the record for the duration of the transaction, preventing other transactions from modifying it until the lock is released. This can be achieved using database-level locks (e.g., `SELECT FOR UPDATE`) or application-level locks (e.g., using `synchronized` blocks in Java). Pessimistic locking can lead to reduced concurrency and potential deadlocks, so it should be used carefully.
+
+### 12. Explain the step-by-step flow of JWT authentication.
+1. **User Login:** The user sends a login request with their credentials (e.g., username and password) to the authentication server.
+2. **Authentication:** The authentication server verifies the user's credentials. If they are valid, the server generates a JWT (JSON Web Token) that contains the user's information and any relevant claims (e.g., roles, permissions).
+3. **Token Generation:** The JWT is signed using a secret key or a public/private key pair to ensure its integrity and authenticity.
+4. **Token Response:** The authentication server sends the generated JWT back to the client in the response.
+5. **Token Storage:** The client stores the JWT (e.g., in local storage or a cookie) for future use.
+6. **Authenticated Requests:** For subsequent requests to protected resources, the client includes the JWT in the Authorization header (e.g., `Authorization: Bearer <token>`).
+7. **Token Validation:** The server receives the request and validates the JWT by checking its signature, expiration time, and any relevant claims. If the token is valid, the server processes the request and returns the appropriate response. If the token is invalid or expired, the server returns an error response (e.g., 401 Unauthorized).
+8. **Token Refresh (optional):** If the JWT has a short expiration time, the client can request a new token using a refresh token before the original token expires. This allows the user to stay authenticated without having to log in again.
+
