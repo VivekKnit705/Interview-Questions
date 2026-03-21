@@ -78,3 +78,26 @@ To manage concurrent updates to the same database record, you can use optimistic
 7. **Token Validation:** The server receives the request and validates the JWT by checking its signature, expiration time, and any relevant claims. If the token is valid, the server processes the request and returns the appropriate response. If the token is invalid or expired, the server returns an error response (e.g., 401 Unauthorized).
 8. **Token Refresh (optional):** If the JWT has a short expiration time, the client can request a new token using a refresh token before the original token expires. This allows the user to stay authenticated without having to log in again.
 
+### 13. Stereotypes of Spring Beans
+In Spring Stereotypes annotation are used to define the role of a class in Application. So that Spring can create their bean and manage them in the Spring container. There are 4 main stereotypes of Spring Beans:
+1. Component
+2. Service
+3. Repository
+4. Controller
+
+### 14. Singleton vs Prototype Bean in Spring
+In Spring, a Single bean is a bean that is created only once and shared across the entire Application while a Prototype bean is a bean that is created every time it is requested.
+
+### 15. Future Interface in Java
+The `Future` interface in Java is part of the `java.util.concurrent` package and represents the result of an asynchronous computation. It provides methods to check if the computation is complete, to retrieve the result of the computation, and to cancel the computation if it is still in progress. The `Future` interface is typically used in conjunction with the `ExecutorService` to manage asynchronous tasks and retrieve their results once they are completed. For example, you can submit a task to an `ExecutorService` and receive a `Future` object that allows you to check the status of the task and retrieve the result when it is ready.
+
+### 16. Stateful vs Stateless Spring Boot Application
+A stateful Spring Boot application maintains state information across multiple requests or sessions, while a stateless Spring Boot application does not maintain any state information and treats each request as independent. In a stateful application, the server can store user-specific data (e.g., session information) that persists across multiple requests, while in a stateless application, the server does not store any user-specific data and relies on the client to provide all necessary information with each request. Stateless applications are generally more scalable and easier to maintain, as they do not require server-side session management, while stateful applications can provide a better user experience by maintaining context and allowing for more complex interactions.
+
+### 17. What type of relationship is there between two classes?
+There are several types of relationships that can exist between two classes in object-oriented programming:
+1. **Association:** This is a general relationship where one class uses or interacts with another class. It can be one-to-one, one-to-many, or many-to-many.
+2. **Aggregation:** This is a special type of association where one class (the whole) contains another class (the part), but the part can exist independently of the whole. It represents a "has-a" relationship.
+3. **Composition:** This is a stronger form of aggregation where the part cannot exist independently of the whole. If the whole is destroyed, the part is also destroyed. It also represents a "has-a" relationship, but with a stronger lifecycle dependency.
+4. **Inheritance:** This is a relationship where one class (the child or subclass) inherits properties and behaviors from another class (the parent or superclass). It represents an "is-a" relationship.
+5. **Dependency:** This is a relationship where one class depends on another class to function. It is a temporary relationship where one class uses another class as a parameter or local variable within a method. It represents a "uses-a" relationship.
