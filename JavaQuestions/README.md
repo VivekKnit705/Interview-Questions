@@ -101,3 +101,9 @@ There are several types of relationships that can exist between two classes in o
 3. **Composition:** This is a stronger form of aggregation where the part cannot exist independently of the whole. If the whole is destroyed, the part is also destroyed. It also represents a "has-a" relationship, but with a stronger lifecycle dependency.
 4. **Inheritance:** This is a relationship where one class (the child or subclass) inherits properties and behaviors from another class (the parent or superclass). It represents an "is-a" relationship.
 5. **Dependency:** This is a relationship where one class depends on another class to function. It is a temporary relationship where one class uses another class as a parameter or local variable within a method. It represents a "uses-a" relationship.
+
+### 18. Normalization (1NF, 2NF, 3NF)
+Normalization in database is a process of orgaizing the data to reduce redendency and improve data integrity.
+1. **1st Normal Form:** Table must have atomic value. there should not be any group.
+2. **2nd Normal Form:** Must follow the 1st Normal form. There should not by any partial dependecy on the composite key.
+3. **3rd Normal Form:** Must be in 2nd Normal form. non-key should not depend on the other non-key. 
